@@ -70,19 +70,13 @@ function userClick(e){
 }
 
 function alexaPlays(){
-    const min = 1;
-    const max = 3;
+    const min = 0;
+    const max = 2;
     const random = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    if(random === 1){
-        return rock;
-    }
-    else if(random == 2){
-        return paper;
-    }
-    else {
-        return scissors;
-    }
+    const choices = ['rock', 'paper', 'scissors']
+
+    return choices[random]
 }
 
 rock.addEventListener('click', userClick)
