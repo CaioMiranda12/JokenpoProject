@@ -8,17 +8,22 @@ const machineScore = document.querySelector('.machine-score')
 let myScore = 0;
 let alexaScore = 0;
 
+const GAME_OPTIONS = {
+    ROCK: 'rock',
+    PAPER: 'paper',
+    SCISSORS: 'scissors'
+}
+
 function userClick(e){
     const machineValue = alexaPlays().className
     const userValue = e.target.className
     let message
-    console.log(userValue)
 
     if(userValue === 'rock'){
-        if(machineValue === 'rock'){
+        if(machineValue === GAME_OPTIONS.ROCK){
             message = 'Deu empate'
         }
-        else if(machineValue === 'paper'){
+        else if(machineValue === GAME_OPTIONS.PAPER){
             message = 'Alexa ganhou'
         }
         else {
@@ -26,11 +31,11 @@ function userClick(e){
         }
     }
 
-    if(userValue === 'paper'){
-        if(machineValue === 'rock'){
+    if(userValue === GAME_OPTIONS.PAPER){
+        if(machineValue === GAME_OPTIONS.ROCK){
             message = 'Você ganhou'
         }
-        else if(machineValue === 'paper'){
+        else if(machineValue === GAME_OPTIONS.PAPER){
             message = 'Deu empate'
         }
         else {
@@ -38,11 +43,11 @@ function userClick(e){
         }
     }
 
-    if(userValue === 'scissors'){
-        if(machineValue === 'rock'){
+    if(userValue === GAME_OPTIONS.SCISSORS){
+        if(machineValue === GAME_OPTIONS.ROCK){
             message = 'Alexa ganhou'
         }
-        else if(machineValue === 'paper'){
+        else if(machineValue === GAME_OPTIONS.PAPER){
             message = 'Você ganhou'
         }
         else {
@@ -74,7 +79,7 @@ function alexaPlays(){
     const max = 2;
     const random = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    const choices = ['rock', 'paper', 'scissors']
+    const choices = [GAME_OPTIONS.ROCK, GAME_OPTIONS.PAPER, GAME_OPTIONS.SCISSORS]
 
     return choices[random]
 }
